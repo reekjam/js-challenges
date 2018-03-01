@@ -1,6 +1,4 @@
-const hackerrank = (str) => {
-  // 'hackerrank' appears in the string in the same order
-  const target = "hackerrank";
+const hackerrank = (str, target) => {
   let targetIndex = 0;
 
   str.split("").forEach((char) => {

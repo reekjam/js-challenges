@@ -60,7 +60,7 @@ it('sos', () => {
 it('hackerrank in string', () => {
   const str = "hhhackkkerrjkljabzzznkkz";
 
-  expect(hackerrank(str)).toEqual(true);
+  expect(hackerrank(str, 'hackerrank')).toEqual(true);
 });
 
 it('pangram', () => {
