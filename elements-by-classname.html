@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+  <div id='root'>
+    <div class='butts'>
+      <div class='butts'>
+        <p>Pizza</p>
+      </div>
+      <div class='butters'>
+        <div class='butts'>
+          <p>Butts</p>
+        </div>
+        <div class='but'>
+        </div>
+      </div>
+      <div class='pizza'>
+        <div class='butts'></div>
+      </div>
+      <div class='pizza'>
+        <div class='pizza-butt'>
+          <div class='butts'></div>
+        </div>
+      </div>
+    </div>
+    <div class='no-butts'></div>
+  </div>
+  <script>
+    function getElsByClassName(root, className, results=[]) {
+      var children = root.children;
+        Array.from(children).forEach(function(el) {
+          if (el.className === className) {
+            results.push(el);
+          };
+
+          if (el.children) {
+            getElsByClassName(el, className, results);
+          };
+        });
+
+      return results;
+    };
+
+    var root = document.getElementById('root');
+    console.log(getElsByClassName(root, 'butts'));
+  </script>
+</body>

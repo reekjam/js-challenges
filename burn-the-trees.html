@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+  <div>
+    <h2>Turn the x's to o's</h2>
+    <p>This is a flood fill example.</p>
+  </div>
+  <div id='tables'>
+    <table>
+      <tbody></tbody>
+    </table>
+  </div>
+  <script>
+    // Validate cell coordinates
+    const isValid = ([rowIndex, cellIndex]) => {
+      return (
+        rowIndex  >= 0 &&
+        rowIndex  <= 9 &&
+        cellIndex >= 0 &&
+        cellIndex <= 9
+      );
+    };
+
+    const convert = ([rowIndex, cellIndex]) => {
+      let table = document.getElementsByTagName('table')[0];
+      let cell = table.rows[rowIndex].cells[cellIndex];
+
+      if (!isValid([rowIndex, cellIndex]) || cell.innerText === 'o') {
+        return
+      };
+
+      cell.innerText = 'o';
+      let up    = [rowIndex - 1, cellIndex];
+      let right = [rowIndex, cellIndex + 1];
+      let down  = [rowIndex + 1, cellIndex];
+      let left  = [rowIndex, cellIndex - 1];
+
+      // Recurse if cell coordinates are valid
+      if (isValid(up)) { convert(up) };
+      if (isValid(right)) { convert(right) };
+      if (isValid(down)) { convert(down) };
+      if (isValid(left)) { convert(left) };
+    };
+
+    let tbody = document.getElementsByTagName('tbody')[0];
+
+    // Return an x or an o
+    const randomValue = () => {
+      return Math.floor(Math.random() * 2) === 0 ? 'x' : 'o';
+    };
+
+    // Create a table with random values for each <td>
+    const createTable = () => {
+      const fill = 
+        Array(10).fill(Array(10).fill(null)).map(n => n.map(m => randomValue()));
+
+      fill.forEach(row => {
+        let newRow = tbody.insertRow();
+        row.forEach(cell => {
+          newRow.insertCell().innerHTML = cell;
+        });
+      });
+    };
+
+    createTable();
+
+    // Add event listeners
+    let cells = document.getElementsByTagName('td');
+
+    const clickHandler = (e) => {
+      const cell = e.target;
+      const rowIndex = cell.parentNode.rowIndex;
+      const cellIndex = cell.cellIndex;
+
+      convert([rowIndex, cellIndex]);
+    };
+
+    Array.from(cells).forEach(cell => {
+      cell.addEventListener('click', clickHandler);
+    });
+  </script>
+</body>
+
