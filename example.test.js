@@ -20,6 +20,7 @@ const flattenArray = require('./flatten-array.js');
 const sortHashByValue = require('./sort-hash-by-value.js');
 const propertyChecker = require('./property-checker.js');
 const buyLowSellHigh = require('./buy-low-sell-high.js');
+const productsOfArray = require('./products-of-array.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -184,4 +185,14 @@ it('buy low sell high', () => {
   
   expect(buyLowSellHigh(prices)).toEqual(23);
   expect(buyLowSellHigh(decreasingPrices)).toEqual(-1);
+});
+
+it('products of array', () => {
+  const arr1 = [1, 7, 3, 4];
+
+  expect(productsOfArray(arr1)).toEqual([84, 12, 28, 21]);
+
+  const arr2 = [0, 12, 40, 50]
+
+  expect(productsOfArray(arr2)).toEqual([24000, 0, 0, 0]);
 });
