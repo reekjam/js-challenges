@@ -21,6 +21,7 @@ const sortHashByValue = require('./sort-hash-by-value.js');
 const propertyChecker = require('./property-checker.js');
 const buyLowSellHigh = require('./buy-low-sell-high.js');
 const productsOfArray = require('./products-of-array.js');
+const highestProductOf3 = require('./highest-product-of-3.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -195,4 +196,10 @@ it('products of array', () => {
   const arr2 = [0, 12, 40, 50]
 
   expect(productsOfArray(arr2)).toEqual([24000, 0, 0, 0]);
+});
+
+it('highest product of 3', () => {
+  const arr = [-10, -10, 1, 3, 2];
+
+  expect(highestProductOf3(arr)).toEqual(300);
 });
