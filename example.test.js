@@ -22,6 +22,7 @@ const propertyChecker = require('./property-checker.js');
 const buyLowSellHigh = require('./buy-low-sell-high.js');
 const productsOfArray = require('./products-of-array.js');
 const highestProductOf3 = require('./highest-product-of-3.js');
+const mergeMeetings = require('./merge-meetings.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -202,4 +203,10 @@ it('highest product of 3', () => {
   const arr = [-10, -10, 1, 3, 2];
 
   expect(highestProductOf3(arr)).toEqual(300);
+});
+
+it('merge meetings', () => {
+  const meetings = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
+
+  expect(mergeMeetings(meetings)).toEqual([[0, 1], [3, 8], [9, 12]]);
 });
