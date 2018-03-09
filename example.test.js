@@ -23,6 +23,7 @@ const buyLowSellHigh = require('./buy-low-sell-high.js');
 const productsOfArray = require('./products-of-array.js');
 const highestProductOf3 = require('./highest-product-of-3.js');
 const mergeMeetings = require('./merge-meetings.js');
+const pileOfCubes = require('./pile-of-cubes.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -209,4 +210,11 @@ it('merge meetings', () => {
   const meetings = [[0, 1], [3, 5], [4, 8], [10, 12], [9, 10]];
 
   expect(mergeMeetings(meetings)).toEqual([[0, 1], [3, 8], [9, 12]]);
+});
+
+it('pile of cubes', () => {
+  expect(pileOfCubes(4183059834009)).toEqual(2022);
+  expect(pileOfCubes(24723578342962)).toEqual(-1);
+  expect(pileOfCubes(135440716410000)).toEqual(4824);
+  expect(pileOfCubes(40539911473216)).toEqual(3568);
 });
