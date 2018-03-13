@@ -25,6 +25,7 @@ const highestProductOf3 = require('./highest-product-of-3.js');
 const mergeMeetings = require('./merge-meetings.js');
 const pileOfCubes = require('./pile-of-cubes.js');
 const findNextSquare = require('./find-next-square.js');
+const formatPhoneNumber = require('./format-phone-number.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -224,4 +225,10 @@ it('finds next square', () => {
   expect(findNextSquare(64)).toEqual(81);
   expect(findNextSquare(63)).toEqual(-1);
   expect(findNextSquare(20736)).toEqual(21025);
+});
+
+it('formats phone number', () => {
+  const phoneNum = [5,5,5,8,6,7,5,3,0,9];
+
+  expect(formatPhoneNumber(phoneNum)).toEqual('(555) 867-5309');
 });
