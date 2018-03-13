@@ -24,6 +24,7 @@ const productsOfArray = require('./products-of-array.js');
 const highestProductOf3 = require('./highest-product-of-3.js');
 const mergeMeetings = require('./merge-meetings.js');
 const pileOfCubes = require('./pile-of-cubes.js');
+const findNextSquare = require('./find-next-square.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -217,4 +218,10 @@ it('pile of cubes', () => {
   expect(pileOfCubes(24723578342962)).toEqual(-1);
   expect(pileOfCubes(135440716410000)).toEqual(4824);
   expect(pileOfCubes(40539911473216)).toEqual(3568);
+});
+
+it('finds next square', () => {
+  expect(findNextSquare(64)).toEqual(81);
+  expect(findNextSquare(63)).toEqual(-1);
+  expect(findNextSquare(20736)).toEqual(21025);
 });
