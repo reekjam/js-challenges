@@ -26,6 +26,7 @@ const mergeMeetings = require('./merge-meetings.js');
 const pileOfCubes = require('./pile-of-cubes.js');
 const findNextSquare = require('./find-next-square.js');
 const formatPhoneNumber = require('./format-phone-number.js');
+const wordOrder = require('./word-order.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -231,4 +232,10 @@ it('formats phone number', () => {
   const phoneNum = [5,5,5,8,6,7,5,3,0,9];
 
   expect(formatPhoneNumber(phoneNum)).toEqual('(555) 867-5309');
+});
+
+it('word order', () => {
+  const str = 'an4d ea5t you2r pray3ers sa1y you6r vitam7ins';
+
+  expect(wordOrder(str)).toEqual('sa1y you2r pray3ers an4d ea5t you6r vitam7ins');
 });
