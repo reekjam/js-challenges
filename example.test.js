@@ -27,6 +27,7 @@ const pileOfCubes = require('./pile-of-cubes.js');
 const findNextSquare = require('./find-next-square.js');
 const formatPhoneNumber = require('./format-phone-number.js');
 const wordOrder = require('./word-order.js');
+const initializedName = require('./initialized-name.js');
 
 it('deduper', () => {
   const arr = [1, 2, 2, 2, 3, 3];
@@ -238,4 +239,10 @@ it('word order', () => {
   const str = 'an4d ea5t you2r pray3ers sa1y you6r vitam7ins';
 
   expect(wordOrder(str)).toEqual('sa1y you2r pray3ers an4d ea5t you6r vitam7ins');
+});
+
+it('initialized name', () => {
+  expect(initializedName("Macho Man Randy Savage")).toEqual("Macho M. R. Savage");
+  expect(initializedName("Hulk Hogan")).toEqual("Hulk Hogan");
+  expect(initializedName("Yokozuna")).toEqual("Yokozuna");
 });
